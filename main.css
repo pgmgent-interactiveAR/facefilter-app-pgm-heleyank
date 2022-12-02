@@ -1,0 +1,36 @@
+.loader {
+  display: flex;
+  display:none;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.instructions {
+  position: relative;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.instructions.close {
+  display: none;
+}
+
+.btn-start {
+  border: 2px solid black;
+  background-color:white;
+  padding: 0.5rem 1rem;
+  border-radius: 5rem;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+  margin-top: 3rem;
+}
+
+.btn-start:hover {
+  background-color: black;
+  color: white;
+}
