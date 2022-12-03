@@ -5,26 +5,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <title>face filter app</title>
-
-    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-face.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-face-aframe.prod.js"></script>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div id="loader" class="loader">
-        <div class="loading">
-            <h1>Face filter app</h1>
-            <p> Hang on ...we are loading up some fun</p>
-        </div>
-    </div>
+    
     <div class="instructions">
         <h2>Instructions</h2>
         <p>This is an face filter app so be prepared to see your face.</p>
         <p>Use the buttons below to change the face filters.</p>
         <button type="button" class="btn-start">start</button>
     </div>
-    <a-scene class="a-scene">
-    </a-scene>
+    <a-scene mindar-face embedded color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+        <a-assets>
+            <a-asset-item id="mouse-ears" src="./3d-objects/mouse-ears.glb"></a-asset-item>
+            <a-asset-item id="mouse-nose" src="./3d-objects/mouse-nose.glb"></a-asset-item>
+            <a-asset-item id="reindeer-antlers" src="./3d-objects/reindeer-antlers.glb"></a-asset-item>
+            <a-asset-item id="reindeer-ears" src="./3d-objects/reindeer-ears.glb"></a-asset-item>
+            <a-asset-item id="cat-ears" src="./3d-objects/cat-ears.glb"></a-asset-item>
+            <a-asset-item id="cat-eye-right" src="./3d-objects/cat-eye-right.glb"></a-asset-item>
+            <a-asset-item id="cat-eye-left" src="./3d-objects/cat-eye-left.glb"></a-asset-item>
+            <a-asset-item id="fox-snout" src="./3d-objects/fox-snout.glb"></a-asset-item>
+            <a-asset-item id="fox-ears" src="./3d-objects/fox-ears.glb"></a-asset-item>
+            <a-asset-item id="bunny-teeth" src="./3d-objects/bunny-teeth.glb"></a-asset-item>
+            <a-asset-item id="bunny-ears" src="./3d-objects/bunny-ears.glb"></a-asset-item>
+        </a-assets>
+        <a-camera active="false" position="0 -0.8 0"></a-camera>
+        <a-entity mindar-face-target="anchorIndex: 4" >
+            <a-gltf-model scale=".2 .2 .2"  src="#mouse-nose" visible="false" class="mouse"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 8">
+            <a-gltf-model scale=".3 .3 .3" position="0 0 -.35"  src="#mouse-ears" visible="false" class="mouse"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 10">
+            <a-gltf-model scale=".25 .25 .25" position="0 -0.6 -.35"  src="#reindeer-antlers" visible="false" class="reindeer"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 151">
+            <a-gltf-model scale=".205 .205 .205" position="0 -0.3 -.35"  src="#reindeer-ears" visible="false" class="reindeer"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 168">
+            <a-gltf-model scale=".18 .18 .18" position="0 0 -.35"  src="#cat-ears" visible="false" class="cat"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 144">
+            <a-gltf-model scale=".15 .15 .15" position="0.26 0 -.3"  src="#cat-eye-right" visible="false" class="cat"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 374">
+            <a-gltf-model scale=".15 .15 .15" position="-0.23 0 -.3"  src="#cat-eye-left" visible="false" class="cat"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 164">
+            <a-gltf-model scale=".25 .25 .25" position="0 0 -.3"  src="#fox-snout" visible="false" class="fox"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 168">
+            <a-gltf-model scale=".2 .2 .2" position="0 -0.1 -.3"  src="#fox-ears" visible="false" class="fox"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 13">
+            <a-gltf-model scale=".25 .25 .25" position="0 0 -.3"  src="#bunny-teeth" visible="false" class="bunny"></a-gltf-model>
+        </a-entity>
+        <a-entity mindar-face-target="anchorIndex: 168">
+            <a-gltf-model scale=".2 .2 .2" position="0 0.05 -.3"  src="#bunny-ears" visible="false" class="bunny"></a-gltf-model>
+        </a-entity>
+
+
+        </a-scene>
+        <div class="options">
+            <button class="option optionBtn" data-name="fox">
+                <img src="./3d-renders/fox.png" alt="fox" data-name="fox">
+            </button>
+            <button class="option optionBtn" data-name="reindeer">
+                <img src="./3d-renders/reindeer.png" alt="reindeer" data-name="reindeer">
+            </button>
+            <button class="option optionBtn" data-name="cat">
+                <img src="./3d-renders/cat.png" alt="cat" data-name="cat">
+            </button>
+            <button class="option optionBtn" data-name="bunny">
+                <img src="./3d-renders/bunny.png" alt="bunny" data-name="bunny">
+            </button>
+            <button class="option optionBtn" data-name="mouse">
+              <img src="./3d-renders/mouse.png" alt="mouse ears and nose" data-name="mouse">
+            </button>
+        </div>
     </body>
     <script src="main.js"></script>
     </html>

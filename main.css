@@ -1,10 +1,17 @@
-.loader {
-  display: flex;
-  display:none;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+body{
+  max-width: 100vw;
+  max-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: white;
+  font-family: "Helvetica Neue";
+  font-size:1.1rem;
 }
+h2 {
+  font-size: 2rem;
+  color: #F37413;
+}
+
 
 .instructions {
   position: relative;
@@ -14,6 +21,8 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100vw;
+  background-color: #173518;
 }
 
 .instructions.close {
@@ -21,8 +30,10 @@
 }
 
 .btn-start {
-  border: 2px solid black;
-  background-color:white;
+  border: 4px solid #F37413;
+  background-color:#173518;
+  color: #F37413;
+  font-size: 1.2rem;
   padding: 0.5rem 1rem;
   border-radius: 5rem;
   transition: all 0.5s ease-in-out;
@@ -31,6 +42,47 @@
 }
 
 .btn-start:hover {
-  background-color: black;
-  color: white;
+  background-color: #F37413;
+  color: #173518;
+}
+
+.options {
+  height: 15rem;
+  width:99vw;
+  position: absolute;
+  z-index: 99;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  margin: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.option {
+  height: 6rem;
+  width: 6rem;
+  border: 6px solid #173518;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.option img {
+  height:6rem;
+  width: 6rem;
+  object-fit: cover;
+}
+
+.object {
+  display: none;
+}
+
+.selected {
+  scale: 1.2;
+  border: 4px solid #F37413;
 }
